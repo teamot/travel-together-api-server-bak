@@ -1,5 +1,8 @@
 # 가치여행 API 서버
 
-## API 문서
+같이 쓰는 여행 일정으로 가치 있는 여행을!
+모바일 애플리케이션 가치여행 API 서버
 
-제공하는 API에 대한 자세한 설명은 [여기](https://github.com/teamot/travel-together-api-server/wiki/%EA%B0%80%EC%B9%98%EC%97%AC%ED%96%89-REST-API-v1)서 볼 수 있습니다.
+## 기타 정보
+
+- [API Docs](https://github.com/teamot/travel-together-api-server/wiki/%EA%B0%80%EC%B9%98%EC%97%AC%ED%96%89-REST-API-v1)
