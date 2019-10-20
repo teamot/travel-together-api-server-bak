@@ -1,0 +1,22 @@
+{
+  "name": "travel-together-api-server",
+  "version": "1.0.0",
+  "description": "같이 쓰는 여행 일정으로 가치 있는 여행을! 모바일 애플리케이션 가치여행 API 서버",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamot/travel-together-api-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamot/travel-together-api-server/issues"
+  },
+  "homepage": "https://github.com/teamot/travel-together-api-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
