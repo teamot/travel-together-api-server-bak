@@ -1,7 +1,8 @@
 import 'reflect-metadata';
-import { promisify } from 'util';
+import './Controller';
 import express from 'express';
 import http from 'http';
+import { Router } from './Router';
 
 export class App {
   public port: number = process.env.PORT ? +process.env.PORT : 3001;
@@ -11,6 +12,7 @@ export class App {
 
   constructor() {
     this.app = express();
+    this.app.use(Router.getInstance());
   }
 
   public async start() {

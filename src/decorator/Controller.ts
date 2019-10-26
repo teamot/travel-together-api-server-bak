@@ -1,9 +1,9 @@
-import { Router } from '../Route';
+import { Router } from '../Router';
 import { Methods, MetadataKeys } from './enum';
-import { Decorator } from './type';
+import { ClassDecorator } from './type';
 
-export function Controller(prefix: string): Decorator {
-  return function(target: any, key: string, desc: PropertyDescriptor): void {
+export function Controller(prefix: string): ClassDecorator {
+  return function(target: Function): void {
     const router = Router.getInstance();
 
     for (const key in target.prototype) {

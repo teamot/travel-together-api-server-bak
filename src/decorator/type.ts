@@ -4,3 +4,5 @@ export type Decorator = (
   key: string,
   desc: PropertyDescriptor
 ) => void;
+
+export type ClassDecorator = (target: Function) => void;
