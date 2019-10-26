@@ -3,7 +3,7 @@ import { Methods, MetadataKeys } from './enum';
 import { ClassDecorator } from './type';
 
 export function Controller(prefix: string): ClassDecorator {
-  return function(target: Function): void {
+  return function(target: any): void {
     const router = Router.getInstance();
 
     for (const key in target.prototype) {
@@ -20,7 +20,10 @@ export function Controller(prefix: string): ClassDecorator {
           key
         );
 
-        router[method](`${prefix}${path}`, target.prototype[key]);
+        router[method](
+          `${prefix}${path}`,
+          target.prototype[key].bind(target.prototype)
+        );
       }
     }
   };
