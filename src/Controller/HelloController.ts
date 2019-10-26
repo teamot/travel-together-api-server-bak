@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Mi, Middleware } from '../decorator';
+import { Controller, Get, Inject, Middleware } from '../decorator';
 import { Request, Response } from 'express';
 import { HelloService } from '../Service/HelloService';
 import { NextFunction } from 'connect';
