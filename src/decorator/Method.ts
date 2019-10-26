@@ -1,13 +1,9 @@
 import { RequestHandler } from 'express';
 import { Methods, MetadataKeys } from './enum';
-import { Decorator, DecoratorGenerator } from './type';
-
-interface RouteHandlerDescriptor extends PropertyDescriptor {
-  value?: RequestHandler;
-}
+import { PropertyDecorator, RouteHandlerDescriptor } from './type';
 
 function bindMethod(method: string) {
-  return function(path: string): Decorator {
+  return function(path: string): PropertyDecorator {
     return function(target: any, key: string, desc: RouteHandlerDescriptor) {
       Reflect.defineMetadata(MetadataKeys.PATH, path, target, key);
       Reflect.defineMetadata(MetadataKeys.METHOD, method, target, key);

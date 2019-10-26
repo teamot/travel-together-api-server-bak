@@ -1,6 +1,7 @@
 import { Router } from '../Router';
 import { Methods, MetadataKeys } from './enum';
 import { ClassDecorator } from './type';
+import { RequestHandler } from 'express';
 
 export function Controller(prefix: string): ClassDecorator {
   return function(target: any): void {
@@ -20,8 +21,13 @@ export function Controller(prefix: string): ClassDecorator {
           key
         );
 
+        const middlewares: RequestHandler[] =
+          Reflect.getMetadata(MetadataKeys.MIDDLEWARE, target.prototype, key) ||
+          [];
+
         router[method](
           `${prefix}${path}`,
+          ...middlewares,
           target.prototype[key].bind(target.prototype)
         );
       }

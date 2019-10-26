@@ -1,5 +1,10 @@
-export type DecoratorGenerator = (path: string) => Decorator;
-export type Decorator = (
+import { RequestHandler } from 'express';
+
+export interface RouteHandlerDescriptor {
+  value?: RequestHandler;
+}
+
+export type PropertyDecorator = (
   target: any,
   key: string,
   desc: PropertyDescriptor

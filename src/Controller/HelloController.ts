@@ -1,6 +1,7 @@
-import { Controller, Get, Inject } from '../decorator';
+import { Controller, Get, Inject, Mi, Middleware } from '../decorator';
 import { Request, Response } from 'express';
 import { HelloService } from '../Service/HelloService';
+import { NextFunction } from 'connect';
 
 @Controller('/hello')
 class HelloController {
@@ -12,6 +13,14 @@ class HelloController {
   }
 
   @Get('/')
+  @Middleware((req: Request, res: Response, next: NextFunction) => {
+    console.log('zzzz');
+    next();
+  })
+  @Middleware((req: Request, res: Response, next: NextFunction) => {
+    console.log('bebebe');
+    next();
+  })
   getHello(req: Request, res: Response): void {
     res.send(this.helloService.sayHello());
   }
