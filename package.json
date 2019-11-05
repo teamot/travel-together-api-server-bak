@@ -4,18 +4,33 @@
   "description": "같이 쓰는 여행 일정으로 가치 있는 여행을! 모바일 애플리케이션 가치여행 API 서버",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "@nestjs/common": "^6.9.0",
+    "@nestjs/core": "^6.9.0",
+    "@nestjs/platform-express": "^6.9.0",
+    "@types/chalk": "^2.2.0",
+    "chalk": "^2.4.2",
+    "config": "^3.2.4",
+    "express": "^4.17.1",
+    "mysql2": "^2.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.3",
+    "sequelize": "^5.21.2",
+    "sequelize-typescript": "^1.0.0"
   },
   "devDependencies": {
+    "@types/config": "0.0.35",
     "@types/express": "^4.17.1",
+    "@types/sequelize": "^4.28.6",
     "concurrently": "^5.0.0",
+    "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
   },
   "scripts": {
     "tsc": "tsc",
     "start:build": "tsc -w",
-    "start:run": "nodemon build/start.js -L",
-    "start": "concurrently npm:start:*"
+    "start:run": "nodemon dist/main.js -L",
+    "start-tmp1": "concurrently npm:start:*",
+    "start": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'node_modules/.bin/ts-node' src/main.ts"
   },
   "repository": {
     "type": "git",
