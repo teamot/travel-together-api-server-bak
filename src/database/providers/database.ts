@@ -10,7 +10,7 @@ export const databaseProviders: Provider[] = [
     useFactory: async () => {
       const sequelize = new Sequelize(config.get('dbConfig'));
       sequelize.addModels([User]);
-      await sequelize.sync();
+      await sequelize.sync({ force: true });
       return sequelize;
     }
   }

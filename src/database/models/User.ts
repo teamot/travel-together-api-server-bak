@@ -1,7 +1,22 @@
 import { Table, Column, DataType, Model } from 'sequelize-typescript';
 
-@Table
-export class User extends Model<User> {
+export interface UserAttributes {
+  id?: string;
+  encryptedPassword?: string;
+  oauthId?: string;
+  oauthToken?: string;
+  oauthServer?: string;
+}
+
+@Table({
+  indexes: [
+    {
+      fields: ['oauth_id'],
+      unique: true
+    }
+  ]
+})
+export class User extends Model<User> implements UserAttributes {
   @Column({
     defaultValue: DataType.UUIDV4,
     primaryKey: true,
@@ -15,23 +30,18 @@ export class User extends Model<User> {
   })
   encryptedPassword: string;
 
+  @Column
+  oauthId: string;
+
   @Column({
     type: DataType.STRING(54)
   })
-  accessToken: string;
+  oauthToken: string;
 
   @Column({
-    type: DataType.STRING(54)
+    type: DataType.STRING(32)
   })
-  @Column
-  refreshToken: string;
-
-  @Column
-  name: string;
-
-  @Column
-  pictureUri: string;
-
+  oauthServer: string;
   // @Column
   // home: string[];
 }
